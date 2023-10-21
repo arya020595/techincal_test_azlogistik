@@ -42,9 +42,9 @@ class KaryawanService
         // Potongan = gaji pokok dipotong sebesar gaji pokok sesuai golongan karyawan dibagi 1 bulan hari kerja efektif per hari
         $total_potongan = 0;
         if (($jumlah_kehadiran + $jumlah_cuti) < 22) {
-            $kehadiran = ( 22 - ($jumlah_kehadiran + $jumlah_cuti) );
+            $absen = ( 22 - ($jumlah_kehadiran + $jumlah_cuti) );
             $potongan_per_hari = $karyawan->golongan->gaji_pokok / $efektif_hari_kerja;
-            $total_potongan = round($potongan_per_hari, -3) * $kehadiran;
+            $total_potongan = round($potongan_per_hari, -3) * $absen;
         }
         
         // THP = Gaji Pokok + Total Uang Kehadiran + Total Uang Lembur - Total Potongan
